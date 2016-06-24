@@ -8,10 +8,8 @@ def validRows(board):
     return all(set(row) == valid_digits for row in board)
 
 
-
 def validColumns(board):
     return validRows(zip(*board))
-
 
 
 def validBlocks(board):
