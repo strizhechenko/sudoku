@@ -1,4 +1,4 @@
-from operator import add
+from itertools import product
 from numpy import matrix
 
 
@@ -27,7 +27,7 @@ def flatblock(x, y, m):
 
 
 def validBlocks(board):
-    return all(all(validValues(flatblock(x, y, board)) for y in blocks) for x in blocks)
+    return all(validValues(flatblock(x, y, board)) for x, y in product(blocks, blocks))
 
 
 def validSolution(board):
