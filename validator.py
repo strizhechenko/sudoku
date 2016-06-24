@@ -3,7 +3,7 @@ from numpy import matrix
 
 
 blocks = ((0, 3), (3, 6), (6, 9))
-valid_digits = {1, 2, 3, 4, 5, 6, 7, 8, 9}
+valid_digits = set(xrange(1, 10))
 
 
 def flatx(m):
