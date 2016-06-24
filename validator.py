@@ -6,12 +6,8 @@ blocks = ((0, 3), (3, 6), (6, 9))
 valid_digits = set(xrange(1, 10))
 
 
-def flatx(m):
-    return matrix(m).flatten().tolist()[0]
-
-
 def flat(m):
-    return reduce(add, m)
+    return matrix(m).flatten().tolist()[0]
 
 
 def validValues(board):
