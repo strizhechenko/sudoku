@@ -3,7 +3,7 @@ from numpy import matrix
 
 
 blocks = ((0, 3), (3, 6), (6, 9))
-valid_digits = set(xrange(1, 10))
+valid_digits = {1, 2, 3, 4, 5, 6, 7, 8, 9}
 
 
 def flat(m):
@@ -15,19 +15,19 @@ def validValues(board):
 
 
 def validRows(board):
-    return all(set(row) == valid_digits for row in board)
+    return all(validValues(row) for row in board)
 
 
 def validColumns(board):
     return validRows(zip(*board))
 
 
-def flatblock(x, y, m):
-    return flat([sub[x[0]:x[1]] for sub in m[y[0]:y[1]]])
+def block(x, y, m):
+    return [sub[x[0]:x[1]] for sub in m[y[0]:y[1]]]
 
 
 def validBlocks(board):
-    return all(validValues(flatblock(x, y, board)) for x, y in product(blocks, blocks))
+    return all(validValues(flat(block(x, y, board))) for x, y in product(blocks, blocks))
 
 
 def validSolution(board):
