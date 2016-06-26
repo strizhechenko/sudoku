@@ -14,10 +14,10 @@ def solve(board):
     for x in xrange(9):
         for y in xrange(9):
             if board[x][y] == 0:
-                blk = set(reduce(add, block(_range(y), _range(x), board)))
                 row = set(board[x])
-                col = set(zip(*board)[y])
-                possible_values = valid_digits - (blk | col | row)
+                column = set(zip(*board)[y])
+                block3x3 = set(reduce(add, block(_range(y), _range(x), board)))
+                possible_values = valid_digits - (row | column | block3x3)
                 if len(possible_values) == 1:
                     board[x][y] = possible_values.pop()
                     return solve(board)
