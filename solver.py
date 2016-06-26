@@ -3,7 +3,7 @@ from operator import add
 valid_digits = {1, 2, 3, 4, 5, 6, 7, 8, 9}
 
 
-def _range(x):
+def block_range(x):
     return x / 3 * 3, x / 3 * 3 + 3
 
 
@@ -16,7 +16,7 @@ def solve(board):
             if board[x][y] == 0:
                 row = set(board[x])
                 column = set(zip(*board)[y])
-                block3x3 = set(reduce(add, block(_range(y), _range(x), board)))
+                block3x3 = set(reduce(add, block(block_range(y), block_range(x), board)))
                 possible_values = valid_digits - (row | column | block3x3)
                 if len(possible_values) == 1:
                     board[x][y] = possible_values.pop()
