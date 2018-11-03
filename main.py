@@ -4,9 +4,8 @@ from test_assets import board_hard, board_easy
 
 if __name__ == '__main__':
     board = Board(board_easy)
-    board.solve()
     print(board)
-    board = Board(board.board)
+    print()
     board.solve()
     print()
     print(board)
